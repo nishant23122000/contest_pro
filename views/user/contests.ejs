@@ -1,0 +1,57 @@
+<%-include('../includes/header.ejs')%>
+<link rel="stylesheet" href="/css/contests.css">
+<%-include('../includes/navbar.ejs')%>
+
+
+    <%if(contests.length){%>
+      <%if(error.length){%>
+        <div class="size alert alert-warning alert-dismissible fade show alert-danger" role="alert">
+          <strong><%=error%></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <%}%> 
+      <%if(live){%>
+        <h1 style="color: white; text-align: center; margin: 20px;">Participate in Live Contest</h1>
+      <%}%>
+        <%contests.forEach((contest)=>{%>
+           
+            <div class="blog-card">
+                <div class="meta">
+                  <div class="photo" style="background-image: url(<%=contest.contestPoster%>)"></div>
+                  <ul class="details">
+                    <li><h5>Event Type: <%=contest.contestType%></a></li>
+                    <li><h5></h5></li>
+                    <p id="nik" style="color: transparent;"><%=contest.contestResultTime%></p>
+                   
+                  </ul>
+                </div>
+                <div class="description">
+                  <h1><%=contest.contestName%></h1>
+                  <h2>Created By : <%=contest.createdUser.username%></h2>
+                  <p class='des'> <%=contest.description%></p>
+                  <%if(!own){%>
+                  <h5 style="margin-top: 10px;">Time Left: <h4 id="demo"></h4></h5>
+                  <%}%>
+                  <p class="read-more">
+                    <a href="/contest/<%=contest._id%>">Read More</a>
+                  </p>
+                </div>
+              </div>
+             
+        <%})%>
+    <%}else{%>
+      <%if(live){%>
+        <h1 class="not"> No Live Contest Available now🤷‍♀️</h1>
+        <%}else if(own){%>
+          <h1 class="not">You have Not Created Any Contest Yet</h1>
+          <%}else{%>
+            <h1 class="not">Currently No Contest Available😢</h1>
+          <%}%>
+    <%}%>
+   
+
+    <script src="/javascript/date.js"></script>
+
+<%-include('../includes/footer.ejs')%>

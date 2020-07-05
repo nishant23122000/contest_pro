@@ -1,0 +1,117 @@
+<%-include('../includes/header.ejs')%>
+    <link rel="stylesheet" href="/css/create_contest.css">
+<%-include('../includes/navbar.ejs')%>
+
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        <%if(error.length){%>
+            <div style="border-radius: 15px;"  class="no alert alert-warning alert-dismissible fade show alert-danger" role="alert">
+              <strong><%=error%></strong>
+              <button  type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <%}%>
+      <form action="/create_contest" method="POST"  class="contact100-form validate-form" >
+        <span class="contact100-form-title">
+       Add Contest
+        </span>
+
+        <div class="wrap-input100 validate-input bg1 <%=validationError.find(e=>e.param==='contestName') ? 'error' : ''%>">
+          <span class="label-input100">Contest Name *</span>
+          <input required 
+          class="input100 " 
+          type="text" 
+          name="contestName" 
+        value="<%=oldData.contestName%>" 
+          placeholder="Enter Contest Name">
+        </div>
+
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100 <%=validationError.find(e=>e.param==='contestType') ? 'error' : ''%>">
+          <span class="label-input100">Contest Type *</span>
+          <input  
+          class="input100 " 
+          type="text" 
+          name="contestType"
+          value="<%=oldData.contestType%>" 
+          placeholder="Enter Contest Type">
+        </div>
+
+        <div class="wrap-input100 bg1 rs1-wrap-input100 <%=validationError.find(e=>e.param==='contestPrice') ? 'error' : ''%>">
+          <span class="label-input100">Contest Price</span>
+          <input required 
+          class="input100 " 
+          type="number" 
+          name="contestPrice"
+          value="<%=oldData.contestPrice%>" 
+          placeholder="Enter Contest Price">
+        </div>
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100 <%=validationError.find(e=>e.param==='contestAgeLimit') ? 'error' : ''%>">
+            <span class="label-input100">Contest Age Limit *</span>
+            <input  
+            class="input100 " 
+            type="number" 
+            name="contestAgeLimit" 
+            value="<%=oldData.contestAgeLimit%>"
+            placeholder="Enter Contest Age Limit">
+          </div>
+  
+          <div class="wrap-input100 bg1 rs1-wrap-input100">
+            <span class="label-input100">Contest Poster</span>
+            <input required 
+            class="input100" 
+            type="text" 
+            name="contestPoster" 
+            value="<%=oldData.contestPoster%>"
+            placeholder="Enter Contest Poster">
+          </div>
+
+          <div class="wrap-input100 bg1 rs1-wrap-input100">
+            <span class="label-input100">Contest Time Range *</span>
+            <input required 
+            class="input100" 
+            type="datetime-local" 
+            name="contestLowTime" 
+            value="<%=oldData.contestLowTime%>" 
+            placeholder="Enter Low Time">
+            <input required 
+            class="input100" 
+            type="datetime-local" 
+            name="contestHighTime"
+            value="<%=oldData.contestHighTime%>"  
+            placeholder="Enter High Time">
+          </div>
+          <div class="wrap-input100 bg1 rs1-wrap-input100">
+            <span class="label-input100">Contest Result Time*</span>
+            <input required 
+            class="input100"
+            type="datetime-local" 
+            name="contestResultTime"
+            value="<%=oldData.contestResultTime%>"
+            placeholder="Enter Low Time">
+
+          </div>
+        
+        <div class="wrap-input100 validate-input bg0 rs1-alert-validate <%=validationError.find(e=>e.param==='description') ? 'error' : ''%>" data-validate = "Please Type Your Message">
+          <span class="label-input100 ">Description</span>
+          <textarea required 
+          class="input100" 
+          name="description" 
+          
+          placeholder="Contest description"><%=oldData.description%></textarea>
+        </div>
+    
+  
+        <div class="container-contact100-form-btn">
+          <button class="button contact100-form-btn">
+            <span>
+                <i class="fa fa-spin"></i>Add-Contest
+              
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/javascript/load.js"></script>
+<%-include('../includes/footer.ejs')%>

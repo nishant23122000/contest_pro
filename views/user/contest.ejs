@@ -1,0 +1,83 @@
+<%-include('../includes/header.ejs')%>
+   <link rel="stylesheet" href="/css/contest.css">
+<%-include('../includes/navbar.ejs')%>
+
+    <div class="row">
+        <div style="border-right: 1px solid white;" class="col-xl-4 col-l-5 col-md-4 col-sm-11" >
+            <div class="row contest_des">
+               
+                    <img src="<%=contest.contestPoster%>" alt="<%=contest.contestName%>" class="img-responsive img">
+                    <div class="contest">
+                        
+                        <div class="types">
+                            <%if(status=='submit your work'){%>
+                                <a href="/join_contest/<%=contest._id%>" class="button btn btn-info">Submit Your Work</a>
+                            <%}else if(status=='join'){%>
+                                <a href="/join_contest/<%=contest._id%>" class="button btn btn-info">join</a>
+                            <%}else{%>
+                                <a style="font-size: 25px !important;" href="/join_contest/<%=contest._id%>" class="button btn btn-info">Your votes:<h4 class="votes"><%=votes%></h4></a>
+                            <%}%>
+                        </div>
+                        <div class="types">
+                            <h4>Event Name:</h4>
+                            <h3 class="form-control"><%=contest.contestName%></h3>
+                        </div>
+                        <div class="types">
+                            <h4>Created By: </h4>
+                            <h3 class="form-control"><strong><%=contest.createdUser.username%></strong></h3>
+                        </div>
+                       <div class="types">
+                        <h4>Result Time Left: </h4>
+                        <h3 class="form-control" id="demo"></h3>
+                       </div>
+                      <div class="types">
+                        <h4>About Event:</h4>
+                        <p><%=contest.description%></p>
+                     </div>
+                        
+                        <p id="nik" style="color: transparent;"><%=contest.contestResultTime%></p>
+                    </div>
+                  
+
+                
+            </div>
+        </div>
+        <div class="col-xl-8 col-l-5 col-md-8" >
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="col-xl-12" >
+                        <p class='active_user'>Active Users</p>
+                    </div>
+                </div>
+               
+         <%if(bug){%>
+              <%works.forEach((work)=>{%>
+                <div class="card">
+                    <div class="card-front" style=" background-image: url('<%=work.work%>');"></div>
+                    <div class="card-back">
+                        <h2 style="color: black;">Created By:<%=work.userId.username%></h2>
+                        <h4>Likes</h4>
+                        <h4 id="votes"> <%=work.votes.users.length%></h4>
+                        
+                        <div class="social-icons">
+                           
+                            <i onclick="addToVote(this,'<%=status%>')" id="bt" style="cursor: pointer;" class="<%if(work.votes.users.find(user=>user.userId.toString()==man.toString())){%>  fas <%}else{%> far <%}%>  fa-heart fa-3x"></i>
+                            <input type="hidden" value="<%=work._id%>" name="workId">
+                        </div>
+                    </div>
+                </div>
+              <%})%>
+          <%}else{%>
+            <div class="col-xl-12">
+                <h1 class="not">Currently,Not Any Participant</h1>
+            </div>
+                
+            <%}%>
+            </div>
+            
+        </div>
+    </div>
+    <script src="/javascript/admin.js"></script>
+    <script src="/javascript/date.js"></script>
+    <script src="/javascript/load.js"></script>
+<%-include('../includes/footer.ejs')%>

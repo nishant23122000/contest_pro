@@ -1,0 +1,162 @@
+@import "https://fonts.googleapis.com/css?family=Josefin+Sans:400,700";
+
+.far{
+  color: black;
+}
+.far:hover{
+  color: red !important;
+ 
+}
+.votes{
+  float: right;
+  margin: 5px;
+}
+.fas{
+  color: red !important;
+ 
+ 
+}
+.not{
+  justify-content: center;
+  text-align: center;   
+  font-family: 'Raleway', sans-serif;
+  margin-top: 200px;
+  color: white;
+}
+body{
+    background-color: #00E1D9;
+}
+.load{
+  background-image: url('/images/load.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+   background-color: transparent;
+  position: relative;
+  top:0;
+  left: 100;
+  bottom: 0;
+  right: 50;
+  }
+.card {
+  
+  height: 330px;
+  width: 250px;
+ margin: 20px;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  transition: 2s all !important;
+}
+.card:hover .card-front {
+  transform: rotateX(-180deg);
+  transition: 2s all;
+}
+.card:hover .card-back {
+  transform: rotateX(0deg);
+  transition: 2s all;
+}
+
+.card-front {
+  height: 100%;
+  width: 100%;
+ 
+  background-position: 50% 50%;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: wheat;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+  transition: 0.5s;
+}
+
+.card-back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: wheat;
+  backface-visibility: hidden;
+  transform: rotateX(180deg);
+  transition: 0.5s;
+  color: #ffffff;
+  text-align: center;
+}
+.card-back h2 {
+  margin: 20% auto;
+  font-size: 26px;
+}
+.card-back h2 span {
+  font-size: 20px;
+}
+.card-back h4{
+  font-size: 40px !important;
+  color:black;
+}
+
+
+
+.img{
+    width: 100%;
+    height: 250px;
+    border-radius: 5px;
+}
+.contest_des{
+    margin:20px;
+}
+.contest{
+    margin: 15px 20px;
+    width: 300px;
+   
+}
+.contest p{
+    color: white;
+    text-align: justify;
+    font-size: 20px;
+    font-weight: 500;
+}
+h4{
+  color: white;
+     font-family: 'Tenali Ramakrishna', sans-serif;
+    font-size: 35px;
+}
+h3{
+  color: white;
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-size: 30px;
+}
+p{
+  color: white;
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-size: 25px !important;
+}
+.form-control{
+  color: white;
+    font-size: 30px !important;
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    border-radius: 0px !important;
+    background: none !important;
+}
+.types{
+  
+    margin: 15px 0;
+}
+.active_user{
+    margin: 10px auto;
+    font-size: 50px !important;
+    justify-content: center;
+    text-align: center;
+}
+.btn{
+    margin: 20px auto !important;
+    /* margin-left: 40px; */
+   
+    justify-content: center;
+    
+    padding: 10px 30px !important;
+    font-size: 20px;
+    color: white !important;
+}

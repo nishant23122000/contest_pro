@@ -1,0 +1,113 @@
+<%-include('../includes/header.ejs')%>
+    <link rel="stylesheet" href="/css/login.css">
+<%-include('../includes/navbar.ejs')%>
+
+<div class="center">
+    <%if(!user){%>
+        
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+
+                    <form class="login100-form validate-form" action="/join_contest" method="POST">
+                        <span class="login100-form-title">
+                            Member Join
+                        </span>
+                        <input type="hidden" name="contestId" value="<%=contestId%>">
+              <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                <input 
+                class="input100" 
+                type="text" 
+                name="name" 
+                placeholder="Your Name">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100 ">
+                                <i class=" fa fa-user" aria-hidden="true"></i>
+                            </span>
+                        </div>
+    
+              <div class="wrap-input100 validate-input" >
+                <input 
+                class="input100" 
+                type="email" 
+                name="email" 
+                disabled
+                value="<%=email%>"
+                placeholder="Email" >
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100 ">
+                                <i class=" fa fa-lock" aria-hidden="true"></i>
+                            </span>
+              </div>
+              <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                <input 
+                class="input100" 
+                type="number" 
+                name="age" 
+                placeholder="Your Age">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100 ">
+                                <i class=" fas fa-users-cog" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="button login100-form-btn">
+                                <i class="fa  fa-spin"></i>Join
+                            </button>
+                        </div>
+
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+    <%}else{%>
+        <%if(user.workSubmitted){%>
+            <h1>You submited work</h1>
+        <%}else{%>
+         
+            <div class="limiter">
+                <div class="container-login100">
+                    <div class="wrap-login100">
+    
+                        <form class="login100-form validate-form" action="/join_contest" method="POST">
+                            <span class="login100-form-title">
+                                Submit Your Work
+                            </span>
+                         
+                  <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input 
+                    class="input100" 
+                    type="text" 
+                    name="image" 
+                    placeholder="Your Work">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100 ">
+                                    <i class=" fas fa-images" aria-hidden="true"></i>
+                                </span>
+                            </div>
+        
+                            <input type="hidden" name="contestId" value="<%=contestId%>">
+                 
+                            
+                            <div class="container-login100-form-btn">
+                                <button type="submit" class="button login100-form-btn">
+                                    <i class="fa  fa-spin"></i>Join
+                                </button>
+                            </div>
+    
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        <%}%>
+    <%}%>
+    
+</div>
+<script src="/javascript/load.js"></script>
+<%-include('../includes/footer.ejs')%>

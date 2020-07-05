@@ -1,0 +1,78 @@
+
+<style>
+  body{
+    width: 100%;  
+    min-height: 100vh;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+  }
+  .navbar-brand{
+    font-size: 25px;
+    color: white;
+  }
+    .nav-link{
+      color: white;
+      font-size: 20px !important;
+      font-weight: 500;
+    }
+    .active{
+      color: black !important;
+      font-weight: 700;
+    }
+    .auth{
+      font-size: 20px !important;
+      font-weight: 500;
+      color: white;
+    }
+    .auth:hover{
+      list-style: none !important;
+      border:none !important;
+    }
+    .navbar-custom{
+      background-color: transparent;
+    }
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">NikContest</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span style="color: white !important;" class="fas fa-bars"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item active">
+              <a class="nav-link <%=path==='contest' ? 'active' : ''%>" href="/">Contest<span class="sr-only">(current)</span></a>
+            </li>
+           <%if(isAuth){%>
+            <li class="nav-item">
+              <a class="nav-link <%=path==='live_contest' ? 'active' : ''%>" href="/live_contest">Live Contest</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <%=path==='create_contest' ? 'active' : ''%>" href="/create_contest">Create Contest</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <%=path==='your_contest' ? 'active' : ''%>" href="/your_contest">Your Contest</a>
+              </li>
+              <%}%>
+            
+          </ul>
+          <div>
+            <%if(!isAuth){%>
+            <a style="padding: 5px;"  class="auth <%=path==='login' ? 'active' : ''%>" href="/login">Login<span class="sr-only">(current)</span></a>
+            <a style="padding: 5px;" class="auth <%=path==='signup' ? 'active' : ''%>" href="/signup">SignUp <span class="sr-only">(current)</span></a>
+            <%}else{%>
+            <a style="padding: 5px;" class="auth"  href="/logout">LogOut <span class="sr-only">(current)</span></a>
+              <%}%>
+          </div>
+          
+        </div>
+      </nav>
+    
+
